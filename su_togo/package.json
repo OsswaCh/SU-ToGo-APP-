@@ -6,16 +6,25 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "web2": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.1.3",
     "expo": "~50.0.14",
     "expo-status-bar": "~1.11.1",
+    "native-base": "^3.4.28",
+    "normalize-css-color": "^1.0.2",
     "react": "18.2.0",
-    "react-native": "0.73.6"
+    "react-dom": "18.2.0",
+    "react-native": "0.73.6",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-svg": "12.1.1",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "nodemon": "^3.1.0"
   },
   "private": true
 }
