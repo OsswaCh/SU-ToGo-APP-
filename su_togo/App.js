@@ -11,10 +11,10 @@ const PlaceholderImage = require('./assets/favicon.png');
   
 // Sample catalog data
 const catalogItems = [
-  { id: 1, name: 'Item 1', price: 10.99, image: PlaceholderImage },
-  { id: 2, name: 'Item 2', price: 20.99, image: PlaceholderImage },
-  { id: 3, name: 'Item 3', price: 30.99, image: PlaceholderImage },
-  { id: 4, name: 'Item 4', price: 40.99, image: PlaceholderImage},
+  { id: 1, name: 'RedBull ', price: 30, image: require('./assets/redBullRed.jpg') },
+  { id: 2, name: 'Molto', price: 15, image: require('./assets/molto.jpg') },
+  { id: 3, name: 'Water 50ml', price: 1, image: require('./assets/waterBottle.jpg') },
+  { id: 4, name: 'Chips', price: 15, image: require('./assets/chips.jpg')},
   { id: 5, name: 'Item 5', price: 50.99, image: PlaceholderImage},
   { id: 6, name: 'Item 6', price: 60.99, image: PlaceholderImage},
   { id: 7, name: 'Item 7', price: 70.99, image: PlaceholderImage},
@@ -35,7 +35,7 @@ export default function App() {
               onPress={() => Alert.alert('You will log out now!')}
             />
             <Button
-              title="Profile"
+              title="View Cart"
               
             />
           </View>
@@ -168,11 +168,13 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
+    boarderRadius: 10,
     width: "100%",
   },
   headercontainer_mid: {
     display: "flex",
     flexDirection: "row",
+    boarderRadius: 10,
     justifyContent: "space-around",
     width: "50%",
   },
@@ -182,6 +184,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     bottom: 0,
+    boarderRadius: 10,
     position: "absolute"
   },
   headercontainer_noflex: {
@@ -200,6 +203,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '500',
     paddingTop: 20,
+    paddingBottom: 10,
   },
 
   input: {
