@@ -2,6 +2,7 @@
   "expo": {
     "name": "su_togo",
     "slug": "su_togo",
+    "scheme": "su_togo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,7 +28,10 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "sdkVersion": "50.0.0"
+    "sdkVersion": "50.0.0",
+    "plugins": [
+      "expo-router"
+    ]
   },
   "name": "su_togo"
 }

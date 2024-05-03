@@ -2,19 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image } from 'react-native';
 
-import Catalog from './components/Catalog'; 
-import Button2 from './components/Button';
-import ImageViewer from './components/ImageViewer';
-import { Subtitle } from 'native-base';
+import Catalog from '../components/Catalog'; 
 
-const PlaceholderImage = require('./assets/favicon.png');
+const PlaceholderImage = require('../assets/favicon.png');
   
 // Sample catalog data
 const catalogItems = [
-  { id: 1, name: 'RedBull ', price: 30, image: require('./assets/redBullRed.jpg') },
-  { id: 2, name: 'Molto', price: 15, image: require('./assets/molto.jpg') },
-  { id: 3, name: 'Water 50ml', price: 1, image: require('./assets/waterBottle.jpg') },
-  { id: 4, name: 'Chips', price: 15, image: require('./assets/chips.jpg')},
+  { id: 1, name: 'RedBull ', price: 30, image: require('../assets/redBullRed.jpg') },
+  { id: 2, name: 'Molto', price: 15, image: require('../assets/molto.jpg') },
+  { id: 3, name: 'Water 50ml', price: 1, image: require('../assets/waterBottle.jpg') },
+  { id: 4, name: 'Chips', price: 15, image: require('../assets/chips.jpg')},
   { id: 5, name: 'Item 5', price: 50.99, image: PlaceholderImage},
   { id: 6, name: 'Item 6', price: 60.99, image: PlaceholderImage},
   { id: 7, name: 'Item 7', price: 70.99, image: PlaceholderImage},
@@ -44,7 +41,7 @@ export default function App() {
             
             <View style={styles.headercontainer_box}>
             <Image
-                  source={require('./assets/sutogo.png')}
+                  source={require('../assets/sutogo.png')}
                   style={[styles.titleImage, { borderRadius: 10 }]}
                 />
               
@@ -70,7 +67,7 @@ export default function App() {
 
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
-                  source={require('./assets/redBull.jpg')}
+                  source={require('../assets/redBull.jpg')}
                   style={[styles.image, { borderRadius: 10 }]}
                 />
                 <Text style={{ padding: 10, color: 'white' }}>
@@ -80,7 +77,7 @@ export default function App() {
               
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
-                  source={require('./assets/softDrink.jpg')}
+                  source={require('../assets/softDrink.jpg')}
                   style={[styles.image, { borderRadius: 10 }]}
                 />
                 <Text style={{ padding: 10, color: 'white' }}>
@@ -90,7 +87,7 @@ export default function App() {
 
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
-                  source={require('./assets/water.jpg')}
+                  source={require('../assets/water.jpg')}
                   style={[styles.image, { borderRadius: 10 }]}
                 />
                 <Text style={{ padding: 10, color: 'white' }}>
@@ -100,7 +97,7 @@ export default function App() {
               
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
-                  source={require('./assets/molto.jpg')}
+                  source={require('../assets/molto.jpg')}
                   style={[styles.image, { borderRadius: 10 }]}
                 />
                 <Text style={{ padding: 10, color: 'white' }}>
@@ -110,7 +107,7 @@ export default function App() {
 
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
-                  source={require('./assets/chips.jpg')}
+                  source={require('../assets/chips.jpg')}
                   style={[styles.image, { borderRadius: 10 }]}
                 />
                 <Text style={{ padding: 10, color: 'white' }}>
