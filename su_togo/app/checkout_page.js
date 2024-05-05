@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 export default function Page() {
   return (
     <>
-      <ScrollView style={styles.scrollViewMain}>
+      <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
         <SafeAreaView style={styles.container}>
           <View style={styles.back_button_view}>
             <Link href="/" style={styles.back_button_text}>Back</Link>
@@ -35,22 +35,28 @@ export default function Page() {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.pickup_options_view}>
+          <View style={styles.pickup_options_view_main}>
             <View>
-              <Text>
+              <Text style={styles.payment_options_text}>
                 Pickup Options:
               </Text>
             </View>
-            <View>
-              <Button title="As Soon As Possible"/>
-              <Button title="Pickip Later"/>
-              <Text>
-                NOTE
+            <View style={styles.pickup_options_view}>
+            <TouchableOpacity style={styles.pickup_options_buttons} /*onPress={onPress}*/>
+                <Text> As Soon As Possible </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.pickup_options_buttons} /*onPress={onPress}*/>
+                <Text> Pickup Later </Text>
+              </TouchableOpacity>
+              <Text style={styles.pickup_options_note_text}>
+              *Note, minimum pickup time 15 minutes. Orders left more than 1 Hour after pickup time will be cancelled
               </Text>
             </View>
           </View>
           <View style={styles.pay_button_view}>
-            <Button title="Pay"/>
+              <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
+                <Text> Pay </Text>
+              </TouchableOpacity>
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -64,8 +70,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     margin: 5,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height:"100%"
+  },
+  scrollView_Contstyl: 
+  {
+    justifyContent: "space-between",
+    height: "100%",
   },
   scrollViewMain: {
+    display: "flex",
+    flexDirection: "column",
     height: "100%",
   },
   back_button_view: 
@@ -121,7 +138,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 20,
   },
-  pickup_options_view: 
+  pickup_options_view_main: 
   {
     backgroundColor: 'blue',
     display: 'flex',
@@ -130,10 +147,45 @@ const styles = StyleSheet.create({
     //justifyContent: "space-around",
     flexDirection: "column",
   },
+  pickup_options_view: 
+  {
+    alignItems: "center",
+  },
+  pickup_options_note_text: 
+  {
+    marginBottom: 5,
+    margin: 10,
+    fontSize: 10,
+  },
+  pickup_options_buttons: 
+  {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "80%",
+    backgroundColor: 'grey',
+    height: 60,
+    marginBottom: 10,
+    borderRadius: 20,
+  },
   pay_button_view: 
   {
     backgroundColor: 'pink',
     flex: 1,
+    width: "100%",
+    alignItems: "center",
+    maxHeight: 100,
+    justifyContent: "center",
+
+  },
+  pay_button_button: 
+  {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "30%",
+    backgroundColor: 'grey',
+    height: 50,
+    borderRadius: 25,
+    margin: 10,
   },
   
 });
