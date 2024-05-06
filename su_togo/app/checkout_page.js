@@ -7,12 +7,13 @@ export default function Page() {
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
         <SafeAreaView style={styles.container}>
           <View style={styles.back_button_view}>
-            <Link href="/" style={styles.back_button_text}>Back</Link>
+            <Link href="/" style={styles.back_button_text}>
+            <Image source={require('../assets/back_Icon.png')} style={[styles.titleImage, { width: 20, height: 20 }]}/>
+            Back
+              </Link>
           </View>
           <View style={styles.store_logo_view}>
-            <Text style={styles.store_logo_text}>
-              Market To Go
-            </Text>
+            <Image source={require('../assets/market_logo.png')} style={[styles.titleImage, { width: 150, height: 150 }]}/>      
           </View>
           <View style={styles.payment_options_main_view}>
             <View>
@@ -22,16 +23,16 @@ export default function Page() {
             </View>
             <View style={styles.payment_options_view}>
               <TouchableOpacity style={styles.payment_options_buttons} /*onPress={onPress}*/>
-                <Text> Cash </Text>
+                <Text style={styles.payment_options_butttons_text}> Cash </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.payment_options_buttons} /*onPress={onPress}*/>
-                <Text> Credit Card </Text>
+                <Text style={styles.payment_options_butttons_text}> Credit Card </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.payment_options_buttons} /*onPress={onPress}*/>
-                <Text> AUC Credit </Text>
+                <Text style={styles.payment_options_butttons_text}> AUC Credit </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.payment_options_buttons} /*onPress={onPress}*/>
-                <Text> Store Points </Text>
+                <Text style={styles.payment_options_butttons_text}> Store Points </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -43,10 +44,10 @@ export default function Page() {
             </View>
             <View style={styles.pickup_options_view}>
             <TouchableOpacity style={styles.pickup_options_buttons} /*onPress={onPress}*/>
-                <Text> As Soon As Possible </Text>
+                <Text style={styles.payment_options_butttons_text}> As Soon As Possible </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.pickup_options_buttons} /*onPress={onPress}*/>
-                <Text> Pickup Later </Text>
+                <Text style={styles.payment_options_butttons_text}> Pickup Later </Text>
               </TouchableOpacity>
               <Text style={styles.pickup_options_note_text}>
               *Note, minimum pickup time 15 minutes. Orders left more than 1 Hour after pickup time will be cancelled
@@ -55,7 +56,7 @@ export default function Page() {
           </View>
           <View style={styles.pay_button_view}>
               <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
-                <Text> Pay </Text>
+                <Text style={{color:"#FFFFFF", fontWeight: 200, fontFamily: "Inter"}}> Pay </Text>
               </TouchableOpacity>
           </View>
         </SafeAreaView>
@@ -67,7 +68,7 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     margin: 5,
     display: "flex",
@@ -87,30 +88,40 @@ const styles = StyleSheet.create({
   },
   back_button_view: 
   {
-    backgroundColor: 'red',
+    backgroundColor: '#FFFFFF',
     alignSelf: 'flex-start',
-    width: 50,
+    display: "flex",
+    alignItems: "center",
+    width: 20,
+    maxHeight: 20,
+    flexDirection: "row"
   },
   back_button_text: 
   {
-    textAlign: "center"
+    backgroundColor: '#FFFFFF',
+    alignSelf: 'flex-start',
+    display: "flex",
+    alignItems: "center",
+    width: 20,
+    maxHeight: 20,
+    flexDirection: "row",
+    textAlign: "center",
+    fontFamily: "Inter",
+    fontSize: 12,
+    fontWeight: 500,
+    
   },
   store_logo_view: 
   {
-    backgroundColor: 'green',
+    backgroundColor: '#FFFFFF',
     width:"100%",
-    height: 80,
-    alignItems: "center"
-  },
-  store_logo_text: 
-  {
-    //textAlign: "center",
-    fontSize: 32,
-    margin: "auto"
+    maxHeight: 140,
+    alignItems: "center",
+    objectFit: "fill"
   },
   payment_options_main_view: 
   {
-    backgroundColor: 'yellow',
+    //#backgroundColor: 'yellow',
     display: 'flex',
     //flexWrap: 'wrap',
     width: "100%",
@@ -119,8 +130,10 @@ const styles = StyleSheet.create({
   },
   payment_options_text: 
   {
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "Inter",
     margin: 10,
+    fontWeight: 500,
   },
   payment_options_view: 
   {
@@ -132,15 +145,21 @@ const styles = StyleSheet.create({
   {
     alignItems: 'center',
     justifyContent: 'center',
-    width: "35%",
-    backgroundColor: 'grey',
+    width: "40%",
+    backgroundColor: '#D9D9D966',
     height: 60,
-    marginBottom: 10,
-    borderRadius: 20,
+    marginBottom: 25,
+    borderRadius: 30,
+    
+  },
+  payment_options_butttons_text:
+  {
+    fontFamily: "Inter",
+    fontWeight: 500,
   },
   pickup_options_view_main: 
   {
-    backgroundColor: 'blue',
+    //backgroundColor: 'blue',
     display: 'flex',
     width:"100%",
     //flexWrap: 'wrap',
@@ -156,25 +175,29 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     margin: 10,
     fontSize: 10,
+    fontFamily: "Inter",
+    fontWeight: 500,
+    marginTop: 0,
   },
   pickup_options_buttons: 
   {
     alignItems: 'center',
     justifyContent: 'center',
     width: "80%",
-    backgroundColor: 'grey',
+    backgroundColor: '#D9D9D966',
     height: 60,
     marginBottom: 10,
-    borderRadius: 20,
+    borderRadius: 30,
   },
   pay_button_view: 
   {
-    backgroundColor: 'pink',
+    //backgroundColor: 'pink',
     flex: 1,
     width: "100%",
     alignItems: "center",
     maxHeight: 100,
     justifyContent: "center",
+    minHeight: 70,
 
   },
   pay_button_button: 
@@ -182,7 +205,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: "30%",
-    backgroundColor: 'grey',
+    backgroundColor: '#000000',
     height: 50,
     borderRadius: 25,
     margin: 10,
