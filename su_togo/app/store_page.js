@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert } from 'react-native';
 
 import Catalog from '../components/Catalog'; 
 
@@ -62,9 +62,7 @@ export default function App() {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.scrollView_contcontain}
-            >
-              
-
+            >  
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
                   source={require('../assets/redBull.jpg')}
@@ -74,7 +72,6 @@ export default function App() {
                   Energy Drinks
                 </Text>
               </View>
-              
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
                   source={require('../assets/softDrink.jpg')}
@@ -84,7 +81,6 @@ export default function App() {
                   Soft Drinks
                 </Text>
               </View>
-
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
                   source={require('../assets/water.jpg')}
@@ -94,7 +90,6 @@ export default function App() {
                   Water
                 </Text>
               </View>
-              
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
                   source={require('../assets/molto.jpg')}
@@ -104,7 +99,6 @@ export default function App() {
                   Sweet
                 </Text>
               </View>
-
               <View style={[styles.scrollView_View, { width: 100 }]}>
                 <Image
                   source={require('../assets/chips.jpg')}
@@ -124,20 +118,27 @@ export default function App() {
 
         </View>
 
-
-        <View style={styles.headercontainer}>
-            {/* Catalog Component */}
-            <Catalog items={catalogItems} />
-        </View>
-        
+       
+          <View style={styles.headercontainer}>
+              {/* Catalog Component */}
+              <ScrollView
+              style={styles.scrollView}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.scrollView_contcontain}
+              >
+              <Catalog items={catalogItems} />
+              </ScrollView>
+          </View>
+       
         </SafeAreaView>
         
       </ScrollView>
       
-      <View style={styles.headercontainer_bot}>
+      {/* <View style={styles.headercontainer_bot}>
         <Text>CART</Text>
         <Text>PROFILE</Text>
-      </View>
+      </View> */}
       
     </>
   );
