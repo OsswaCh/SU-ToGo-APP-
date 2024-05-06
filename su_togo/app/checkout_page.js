@@ -1,6 +1,5 @@
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity  } from 'react-native';
 import { Link } from 'expo-router';
-
 export default function Page() {
   return (
     <>
@@ -55,9 +54,11 @@ export default function Page() {
             </View>
           </View>
           <View style={styles.pay_button_view}>
-              <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
-                <Text style={{color:"#FFFFFF", fontWeight: 200, fontFamily: "Inter"}}> Pay </Text>
-              </TouchableOpacity>
+            <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
+              <Link href="/qrcode_page" style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200}}> 
+                Pay 
+              </Link>
+            </TouchableOpacity>
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -205,10 +206,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: "30%",
-    backgroundColor: '#000000',
+    //backgroundColor: '#000000',
     height: 50,
     borderRadius: 25,
     margin: 10,
+    color:"#FFFFFF",
+    fontWeight: 200,
+    fontFamily: "Inter"
   },
   
 });
