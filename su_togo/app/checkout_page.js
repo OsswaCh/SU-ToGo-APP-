@@ -55,7 +55,7 @@ export default function Page() {
           </View>
           <View style={styles.pay_button_view}>
             <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
-              <Link href="/qrcode_page" style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200}}> 
+              <Link href="/qrcode_page" style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200, fontFamily: "Inter"}}> 
                 Pay 
               </Link>
             </TouchableOpacity>
