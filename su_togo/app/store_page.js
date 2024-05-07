@@ -116,20 +116,18 @@ export default function App() {
 
         </View>
 
-        <View style={styles.headercontainer}>
-              {/* Catalog Component */}
-              <ScrollView
-              style={styles.scrollView}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.scrollView_contcontain}
-              >
-              <Catalog items={catalogItems} />
-              </ScrollView>
-          </View>
-          <View style={styles.container}>
-        <View style={styles.blueBox}>
-          <Link href="/checkout_page" style={styles.checkoutLink}>Check out Page</Link>
+        <View style={styles.headerContainer}>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.scrollViewContent}
+          >
+            <Catalog items={catalogItems} />
+          </ScrollView>
+        </View>
+            <View style={styles.container}>
+            <View style={styles.blueBox}>
+            <Link href="/checkout_page" style={styles.checkoutLink}>Check out Page</Link>
         </View>
         </View>
         
@@ -150,6 +148,18 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+
+  
+  headerContainer: {
+    width: '100%', // Ensure the container takes full width
+    backgroundColor: '#f0f0f0', // Set background color
+    paddingVertical: 10, // Add vertical padding
+  },
+  scrollViewContent: {
+    paddingHorizontal: 20, // Add horizontal padding
+    alignItems: 'center', // Center items horizontally
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#fff',

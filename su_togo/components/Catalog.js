@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const CatalogItem = ({ item, onPressAdd, counter }) => {
@@ -21,12 +21,16 @@ const CatalogItem = ({ item, onPressAdd, counter }) => {
 };
 
 const Catalog = ({ items }) => {
-  const [counters, setCounters] = React.useState({});
+  const [counters, setCounters] = useState({});
 
   const handlePressAdd = (item, increment) => {
     const newCounters = { ...counters };
-    newCounters[item.id] = (newCounters[item.id] || 0) + increment;
-    setCounters(newCounters);
+    const updatedCounter = (newCounters[item.id] || 0) + increment;
+    // Check if the updated counter is greater than or equal to 0 before setting it
+    if (updatedCounter >= 0) {
+      newCounters[item.id] = updatedCounter;
+      setCounters(newCounters);
+    }
   };
 
   return (
