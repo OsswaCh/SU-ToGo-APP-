@@ -1,8 +1,22 @@
-import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-import { Link } from 'expo-router';
+import React, { useState } from 'react';
+import { View, StyleSheet, Image, TextInput, Button, Alert } from 'react-native';
+import { Link, useNavigation } from 'expo-router';
 
 export default function Page() {
+  const [password, setPassword] = useState('123');
+  const [enteredPassword, setEnteredPassword] = useState('');
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    if (enteredPassword === password) {
+      // Navigate to admin page
+      navigation.navigate('admin_page');
+    } else {
+      // Show an alert for incorrect password
+      Alert.alert('Invalid Password', 'Please enter the correct password.');
+    }
+  };
+
   return (
     <View style={styles.container}>
       {/* Header container */}
@@ -15,17 +29,25 @@ export default function Page() {
         </View>
       </View>
 
-      
+      {/* Password input */}
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Password"
+        secureTextEntry={true}
+        value={enteredPassword}
+        onChangeText={text => setEnteredPassword(text)}
+      />
+
+      {/* Login button */}
+      <Button title="Admin Login" onPress={handleLogin} />
+
+      {/* Other links */}
       <View style={styles.box}>
         <Link href="/store_page" style={styles.link}>Store Page</Link>
       </View>
       
       <View style={styles.box}>
         <Link href="/checkout_page" style={styles.link}>Check out Page</Link>
-      </View>
-
-      <View style={styles.box}>
-        <Link href="/admin_page" style={styles.link}>admin</Link>
       </View>
 
     </View>
@@ -69,5 +91,12 @@ const styles = StyleSheet.create({
     height: 50,
     resizeMode: 'contain',
     opacity: 1,
+  },
+  input: {
+    height: 40,
+    width: '80%',
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });

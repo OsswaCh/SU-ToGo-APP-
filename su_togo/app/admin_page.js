@@ -22,7 +22,9 @@ const AdminPage = () => {
   );
 
   return (
+    
     <View style={styles.container}>
+        
       <Text style={styles.title}>Current Orders</Text>
       <FlatList
         data={orders}
