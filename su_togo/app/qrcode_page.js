@@ -6,10 +6,8 @@ import QRCode from 'react-native-qrcode-svg';
 export default function Page() {
   return (
     <View style={styles.container}>
-      <Link href="/">Go Back to Main Page</Link>
-      <View style={styles.qrCodeContainer}>
-        <QRCode value="Purchase Successful" size={250} />
-      </View>
+        <Link href="/">Go Back to Main Page</Link>
+        <QRCode value="Purchase Successful" size={250}/>
     </View>
   );
 }
@@ -19,8 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center', // Center content vertically
     alignItems: 'center', // Center content horizontally
-  },
-  qrCodeContainer: {
-    marginTop: 20, // Add margin for separation
-  },
+    margin: 50,
+    gap: 20,
+  }
 });

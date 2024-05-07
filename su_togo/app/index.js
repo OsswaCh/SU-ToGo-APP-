@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, TextInput, Button, Alert } from 'react-native';
-import { Link, useNavigation } from 'expo-router';
+import { View, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Button, Alert, Text } from 'react-native';
+import { Link,useNavigation } from 'expo-router';
 
 export default function Page() {
   const [password, setPassword] = useState('123');
@@ -18,51 +18,94 @@ export default function Page() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Header container */}
-      <View style={styles.headercontainer}>
-        <View style={styles.headercontainer_box}>
-          <Image
-            source={require('../assets/sutogo.png')}
-            style={[styles.titleImage, { borderRadius: 10 }]}
-          />
-        </View>
-      </View>
+    <>
+      <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.headercontainer}>
+                <Image
+                  source={require('../assets/student_union_logo.png')}
+                  style={[styles.titleImage, { borderRadius: 10, width: 300, height: 260 }]}
+                />
+                <Image
+                  source={require('../assets/frontpage.png')}
+                  style={[styles.titleImage, { borderRadius: 10, width: 250, height: 60 }]}
+                />
+            </View> 
+            <View style={styles.box}>
+              <TouchableOpacity style={styles.link}>
+                <Link href="/store_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
+                  Start Shopping
+                </Link>
+              </TouchableOpacity>
+            </View>
+            {/* <View style={styles.box}>
+              <TouchableOpacity style={styles.link}>
+                <Link href="/checkout_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
+                  Check out Page
+                </Link>
+              </TouchableOpacity>
+            </View> */}
+            {/* Password input */}
+            <View style={styles.password}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Password"
+              secureTextEntry={true}
+              value={enteredPassword}
+              onChangeText={text => setEnteredPassword(text)}
+            />
 
-      {/* Password input */}
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Password"
-        secureTextEntry={true}
-        value={enteredPassword}
-        onChangeText={text => setEnteredPassword(text)}
-      />
+            {/* Login button */}
+            <TouchableOpacity onPress={handleLogin} style={{alignItems: "center", width: "50%", height: 50, backgroundColor: "#D9D9D966", borderRadius: 30, justifyContent: "center"}}>
+              <Text style={{color: "black",fontSize: 12,fontWeight: '500',fontFamily: "Inter"}}>Admin</Text>
+            </TouchableOpacity>
 
-      {/* Login button */}
-      <Button title="Admin Login" onPress={handleLogin} />
-
-      {/* Other links */}
-      <View style={styles.box}>
-        <Link href="/store_page" style={styles.link}>Store Page</Link>
-      </View>
+            {/* Other links */}
+            </View>
+            
+            {/* <View style={styles.box}>
+              <TouchableOpacity style={styles.link}>
+                <Link href="/admin_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
+                  Manager Page
+                </Link>
+              </TouchableOpacity>
+            </View> */}
+        </SafeAreaView>
+      </ScrollView>
       
-      <View style={styles.box}>
-        <Link href="/checkout_page" style={styles.link}>Check out Page</Link>
-      </View>
-
-    </View>
+    </>
+    
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
+    margin: 5,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    height:"100%"
+  },
+  scrollView_Contstyl: 
+  {
+    justifyContent: "space-between",
+    height: "100%",
+  },
+  scrollViewMain: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
   },
   headercontainer: {
-    width: '80%',
-    marginBottom: 20,
+    //marginBottom: 20,
+    backgroundColor: '#FFFFFF',
+    width:"100%",
+    maxHeight: 330,
+    alignItems: "center",
+    objectFit: "fill"
   },
   headercontainer_box: {
     alignItems: 'center',
@@ -72,19 +115,21 @@ const styles = StyleSheet.create({
   box: {
     flexDirection: 'row', // Align items horizontally
     width: '80%',
-    height: '15%',
-    backgroundColor: '#040d1f', 
-    padding: 10, 
-    borderRadius: 5, 
-    marginVertical: 10,
+    height: 70,
+    backgroundColor: '#D9D9D966', 
+    margin: 25, 
+    borderRadius: 30, 
     alignItems: 'center', 
     justifyContent: 'center', // Center items horizontally
   },
   link: {
-    color: 'white', // Link color
+    color: 'black', // Link color
     fontSize: 16, // Font size
-    fontWeight: 'bold', // Font weight
+    fontWeight: '500', // Font weight
     fontFamily: "Inter",
+    width: "100%",
+    height: "100%",
+    borderRadius: 30, 
   },
   titleImage: {
     width: 300,
@@ -93,10 +138,27 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   input: {
-    height: 40,
+    color: 'black', // Link color
+    fontSize: 16, // Font size
+    fontWeight: '500', // Font weight
+    fontFamily: "Inter",
+    height: 70,
     width: '80%',
-    margin: 12,
+    margin: 20,
     borderWidth: 1,
-    padding: 10,
+    textAlign: "center",
+    borderRadius: 30,
+    //padding: 10,
+
+  },
+  password:
+  {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    height: 200,
+    alignItems: "center",
+    //justifyContent: "space-between"
+
   },
 });
