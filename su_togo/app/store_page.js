@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
+import { Link } from 'expo-router';
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert } from 'react-native';
 
 import Catalog from '../components/Catalog'; 
@@ -25,11 +26,20 @@ export default function App() {
         <SafeAreaView style={styles.container}>
           <StatusBar style='light' />
 
+
+          <View style={styles.back_button_view}>
+            <Link href="/" style={styles.back_button_text}>
+            <Image source={require('../assets/back_Icon.png')} style={[styles.titleImage, { width: 20, height: 20 }]}/>
+            Back
+              </Link>
+          </View>
+        
           <View style={styles.headercontainer}>
             
             <Button
               title="Log Out"
               onPress={() => Alert.alert('You will log out now!')}
+              
             />
             <Button
               title="View Cart"
@@ -118,8 +128,7 @@ export default function App() {
 
         </View>
 
-       
-          <View style={styles.headercontainer}>
+        <View style={styles.headercontainer}>
               {/* Catalog Component */}
               <ScrollView
               style={styles.scrollView}
@@ -134,6 +143,8 @@ export default function App() {
         </SafeAreaView>
         
       </ScrollView>
+
+      
       
       {/* <View style={styles.headercontainer_bot}>
         <Text>CART</Text>
@@ -249,6 +260,44 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
 
+  back_button_view: 
+  {
+    backgroundColor: '#FFFFFF',
+    alignSelf: 'flex-start',
+    display: "flex",
+    alignItems: "center",
+    width: 20,
+    maxHeight: 20,
+    flexDirection: "row",
+  },
+  back_button_text: 
+  {
+    backgroundColor: '#FFFFFF',
+    alignSelf: 'flex-start',
+    display: "flex",
+    alignItems: "center",
+    width: 20,
+    maxHeight: 20,
+    flexDirection: "row",
+    textAlign: "center",
+    fontFamily: "Inter",
+    fontSize: 12,
+    fontWeight: 500,
+    
+  },
 
+  catalogScrollView: {
+    backgroundColor: '#d5d5d54a',
+    marginHorizontal: 20,
+    height: 150,
+  },
+  catalogScrollViewContent: {
+    alignItems: 'center',
+  },
+  catalogItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
 
 });
