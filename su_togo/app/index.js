@@ -15,14 +15,19 @@ export default function Page() {
         </View>
       </View>
 
-      {/* Links */}
+      
       <View style={styles.box}>
         <Link href="/store_page" style={styles.link}>Store Page</Link>
       </View>
-      {/* ...other links */}
+      
       <View style={styles.box}>
         <Link href="/checkout_page" style={styles.link}>Check out Page</Link>
       </View>
+
+      <View style={styles.box}>
+        <Link href="/admin_page" style={styles.link}>admin</Link>
+      </View>
+
     </View>
   );
 }
