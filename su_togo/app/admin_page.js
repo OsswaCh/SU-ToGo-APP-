@@ -1,9 +1,6 @@
-// AdminPage.js
-
 import React from 'react';
+import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
 import { Link } from 'expo-router';
-
-import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const orders = [
   { id: 1, customer: 'John Doe', items: ['Product A', 'Product B'], total: 50.99 },
@@ -23,6 +20,13 @@ const AdminPage = () => {
 
   return (
     <View style={styles.container}>
+      {/* Back button */}
+      <View style={styles.back_button_view}>
+        <Link href="/" style={styles.back_button_text}>
+          <Image source={require('../assets/back_Icon.png')} style={[styles.titleImage, { width: 20, height: 20 }]} />
+        </Link>
+      </View>
+
       <Text style={styles.title}>Current Orders</Text>
       <FlatList
         data={orders}
@@ -58,6 +62,20 @@ const styles = StyleSheet.create({
   orderText: {
     fontSize: 16,
     marginBottom: 5,
+  },
+  back_button_view: {
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+  },
+  back_button_text: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleImage: {
+    width: 300,
+    height: 50,
+    resizeMode: 'contain',
+    opacity: 1,
   },
 });
 

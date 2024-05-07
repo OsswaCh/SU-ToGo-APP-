@@ -1,7 +1,22 @@
-import { View, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+import React, { useState } from 'react';
+import { View, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
+import { Link,useNavigation } from 'expo-router';
 
 export default function Page() {
+  const [password, setPassword] = useState('123');
+  const [enteredPassword, setEnteredPassword] = useState('');
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    if (enteredPassword === password) {
+      // Navigate to admin page
+      navigation.navigate('admin_page');
+    } else {
+      // Show an alert for incorrect password
+      Alert.alert('Invalid Password', 'Please enter the correct password.');
+    }
+  };
+
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
@@ -26,6 +41,19 @@ export default function Page() {
                 </Link>
               </TouchableOpacity>
             </View> */}
+            {/* Password input */}
+            <TextInput
+              style={styles.input}
+              placeholder="Enter Password"
+              secureTextEntry={true}
+              value={enteredPassword}
+              onChangeText={text => setEnteredPassword(text)}
+            />
+
+            {/* Login button */}
+            <Button title="Admin Login" onPress={handleLogin} />
+
+            {/* Other links */}
             <View style={styles.box}>
               <TouchableOpacity style={styles.link}>
                 <Link href="/admin_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
@@ -100,5 +128,12 @@ const styles = StyleSheet.create({
     height: 50,
     resizeMode: 'contain',
     opacity: 1,
+  },
+  input: {
+    height: 40,
+    width: '80%',
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
