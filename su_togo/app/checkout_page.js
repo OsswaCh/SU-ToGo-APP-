@@ -6,7 +6,7 @@ export default function Page() {
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
         <SafeAreaView style={styles.container}>
           <View style={styles.back_button_view}>
-            <Link href="/" style={styles.back_button_text}>
+            <Link href="/store_page" style={styles.back_button_text}>
             <Image source={require('../assets/back_Icon.png')} style={[styles.titleImage, { width: 20, height: 20 }]}/>
             Back
               </Link>

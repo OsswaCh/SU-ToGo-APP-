@@ -34,18 +34,6 @@ export default function App() {
               </Link>
           </View>
         
-          <View style={styles.headercontainer}>
-            
-            <Button
-              title="Log Out"
-              onPress={() => Alert.alert('You will log out now!')}
-              
-            />
-            <Button
-              title="View Cart"
-              
-            />
-          </View>
           
           <View style={styles.headercontainer}>
             
@@ -139,8 +127,14 @@ export default function App() {
               <Catalog items={catalogItems} />
               </ScrollView>
           </View>
-       
+          <View style={styles.container}>
+        <View style={styles.blueBox}>
+          <Link href="/checkout_page" style={styles.checkoutLink}>Check out Page</Link>
+        </View>
+        </View>
+        
         </SafeAreaView>
+
         
       </ScrollView>
 
@@ -298,6 +292,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
+  },
+  blueBox: {
+    backgroundColor: '#040d1f', 
+    padding: 17, 
+    borderRadius: 5,
+    alignItems: 'center', 
+    height: 55,
+    width: 250
+  },
+  checkoutLink: {
+    color: 'white',
+    fontSize: 16, 
+    fontWeight: 'bold', 
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center', 
   },
 
 });
