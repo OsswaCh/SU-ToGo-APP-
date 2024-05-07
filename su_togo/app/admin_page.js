@@ -36,7 +36,6 @@ const AdminPage = () => {
           <Image source={require('../assets/back_Icon.png')} style={[styles.titleImage, { width: 20, height: 20 }]} />
         </Link>
       </View>
-
       <Text style={styles.title}>Current Orders</Text>
       <FlatList
         data={orders}
@@ -47,7 +46,6 @@ const AdminPage = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
