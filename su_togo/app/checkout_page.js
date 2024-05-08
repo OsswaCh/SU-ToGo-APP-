@@ -1,6 +1,9 @@
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity  } from 'react-native';
 import { Link } from 'expo-router';
 export default function Page() {
+
+  
+
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>

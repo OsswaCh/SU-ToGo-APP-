@@ -33,7 +33,7 @@ export default function Page() {
             </View> 
             <View style={styles.box}>
               <TouchableOpacity style={styles.link}>
-                <Link href="/store_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
+                <Link href="/store_page" style={styles.linkText}>
                   Start Shopping
                 </Link>
               </TouchableOpacity>
@@ -63,13 +63,6 @@ export default function Page() {
             {/* Other links */}
             </View>
             
-            {/* <View style={styles.box}>
-              <TouchableOpacity style={styles.link}>
-                <Link href="/admin_page" style={{color: "black",fontSize: 16,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>
-                  Manager Page
-                </Link>
-              </TouchableOpacity>
-            </View> */}
         </SafeAreaView>
       </ScrollView>
       
@@ -112,16 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
   },
-  box: {
-    flexDirection: 'row', // Align items horizontally
-    width: '80%',
-    height: 70,
-    backgroundColor: '#D9D9D966', 
-    margin: 25, 
-    borderRadius: 30, 
-    alignItems: 'center', 
-    justifyContent: 'center', // Center items horizontally
-  },
+
   link: {
     color: 'black', // Link color
     fontSize: 16, // Font size
@@ -160,5 +144,33 @@ const styles = StyleSheet.create({
     alignItems: "center",
     //justifyContent: "space-between"
 
+  },
+
+  box: {
+    flexDirection: 'row', // Align items horizontally
+    width: '80%',
+    height: 70,
+    backgroundColor: '#D9D9D966',
+    margin: 25,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center', // Center items horizontally
+  },
+  link: {
+    color: 'black', // Link color
+    fontSize: 16, // Font size
+    fontWeight: '500', // Font weight
+    fontFamily: "Inter",
+    width: "100%",
+    height: "100%",
+    borderRadius: 30,
+    justifyContent: 'center', // Center items horizontally
+    alignItems: 'center', // Center items vertically
+  },
+  linkText: {
+    color: 'black', // Text color
+    fontSize: 16, // Font size
+    fontWeight: '500', // Font weight
+    fontFamily: "Inter",
   },
 });
