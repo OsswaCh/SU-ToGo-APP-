@@ -57,7 +57,7 @@ export default function Page() {
 
             {/* Login button */}
             <TouchableOpacity onPress={handleLogin} style={{alignItems: "center", width: "50%", height: 50, backgroundColor: "#D9D9D966", borderRadius: 30, justifyContent: "center"}}>
-              <Text style={{color: "black",fontSize: 12,fontWeight: '500',fontFamily: "Inter"}}>Admin</Text>
+              <Text style={{color: "black",fontSize: 12,fontWeight: '500',fontFamily: "Inter", width: "100%", height: "100%", alignContent:"center", textAlign: "center" }}>Admin</Text>
             </TouchableOpacity>
 
             {/* Other links */}
@@ -171,6 +171,11 @@ const styles = StyleSheet.create({
     color: 'black', // Text color
     fontSize: 16, // Font size
     fontWeight: '500', // Font weight
-    fontFamily: "Inter",
+    fontFamily: "Inter", 
+    width: "100%",
+    height: "100%",
+    alignContent:"center", 
+    textAlign: "center"
+
   },
 });
