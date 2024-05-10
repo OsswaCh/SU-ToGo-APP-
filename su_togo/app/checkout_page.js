@@ -1,9 +1,33 @@
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity  } from 'react-native';
-import { Link } from 'expo-router';
+import { Link  } from 'expo-router';
 export default function Page() {
 
   
+ 
+  // console.log(items[0]);
+  // console.log(items[1]);
+  // console.log(items[2]);
+  // console.log(items[3]);
+  // console.log(items[4]);
+  // console.log(items[5]);
+  // console.log(items[6]);
+  // console.log(items[7]);
+  //JSON.parse(items)
 
+  
+  // items.forEach(item => {
+  //   console.log("ID:", item.id);
+  //   console.log("Name:", item.name);
+  //   console.log("Price:", item.price);
+  //   console.log("Image:", item.image); // Assuming image is a string or URL
+  // });
+  //console.log( items)
+  //const {id} = items;
+  //console.log(id);
+  //console.log(JSON.stringify(counters));
+  // Object.keys(counters).forEach(key => {
+  //   console.log(key + ": " + counters[key]);
+  // });
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>

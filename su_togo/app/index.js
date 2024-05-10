@@ -16,7 +16,7 @@ export default function Page() {
       Alert.alert('Invalid Password', 'Please enter the correct password.');
     }
   };
-
+  
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>

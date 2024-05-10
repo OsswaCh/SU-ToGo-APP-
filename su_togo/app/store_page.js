@@ -2,24 +2,25 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Link } from 'expo-router';
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert } from 'react-native';
-
+import { catalogItems } from '../data/Catalog_items';
 import Catalog from '../components/Catalog'; 
 
-const PlaceholderImage = require('../assets/favicon.png');
-  
-// Sample catalog data
-const catalogItems = [
-  { id: 1, name: 'RedBull ', price: 30, image: require('../assets/redBullRed.jpg') },
-  { id: 2, name: 'Molto', price: 15, image: require('../assets/molto.jpg') },
-  { id: 3, name: 'Water 50ml', price: 1, image: require('../assets/waterBottle.jpg') },
-  { id: 4, name: 'Chips', price: 15, image: require('../assets/chips.jpg')},
-  { id: 5, name: 'Item 5', price: 50.99, image: PlaceholderImage},
-  { id: 6, name: 'Item 6', price: 60.99, image: PlaceholderImage},
-  { id: 7, name: 'Item 7', price: 70.99, image: PlaceholderImage},
-];
 
+  //COUNTERS + ITEMS to CART
+// Sample catalog data
+// const catalogItems = [
+//   { id: 1, name: 'RedBull ', price: 30, image: require('../assets/redBullRed.jpg') },
+//   { id: 2, name: 'Molto', price: 15, image: require('../assets/molto.jpg') },
+//   { id: 3, name: 'Water 50ml', price: 1, image: require('../assets/waterBottle.jpg') },
+//   { id: 4, name: 'Chips', price: 15, image: require('../assets/chips.jpg')},
+//   { id: 5, name: 'Item 5', price: 50.99, image: PlaceholderImage},
+//   { id: 6, name: 'Item 6', price: 60.99, image: PlaceholderImage},
+//   { id: 7, name: 'Item 7', price: 70.99, image: PlaceholderImage},
+// ];
+// //[]
 export default function App() {
   const [text, onChangeText] = useState('What are you craving today?');
+  const [counters, setCounters] = useState({});
   return (
     <>
       <ScrollView contentContainerStyle={styles.scrollViewMain}>
@@ -122,12 +123,12 @@ export default function App() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.scrollViewContent}
           >
-            <Catalog items={catalogItems} />
+            <Catalog items={catalogItems} counters={counters} setCounters={setCounters} />
           </ScrollView>
         </View>
             <View style={styles.container}>
             <View style={styles.blueBox}>
-            <Link href="/checkout_page" style={styles.checkoutLink}>Check out Page</Link>
+            <Link href={{pathname:"/cart_page", params:{counters: JSON.stringify(counters)}}} style={styles.checkoutLink}>Check out Page</Link>
         </View>
         </View>
         
