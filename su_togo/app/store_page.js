@@ -131,7 +131,7 @@ export default function App() {
         <View style={styles.container}>
           <TouchableOpacity style={styles.checkout_button_button}>
                 
-                <Link href="/cart_page" style={styles.checkout_text}>Check Out Page</Link>
+                <Link href="/cart_page" style={styles.checkout_text}>Cart Page</Link>
                       
           </TouchableOpacity>
         </View>
