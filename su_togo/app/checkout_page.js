@@ -6,9 +6,10 @@ import { catalogItems } from '../data/Catalog_items';
 export default function Page() {
   const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
   const navigation = useNavigation ();
-  const matchedItems = [];
+  
     const endorder =()=> 
         {
+          const matchedItems = [];
           const items=[]
           let totalPrice = 0;
           const randomNumber = Math.floor(Math.random() * 1000);
