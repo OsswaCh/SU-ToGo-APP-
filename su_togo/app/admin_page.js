@@ -12,7 +12,7 @@ const AdminPage = () => {
     setOrders(prevOrders => prevOrders.filter(order => order.id !== itemId));
   };
   const StoptakingOrders =() => {
-    settakingorders(false);
+    settakingorders(!takingorders);
     console.log("Not Taking Orders");
   };
 
@@ -44,7 +44,12 @@ const AdminPage = () => {
         style={styles.orderList}
       />
       <TouchableOpacity style={styles.payment_options_buttons} onPress={StoptakingOrders}/*onPress={onPress}*/>
-                <Text style={styles.payment_options_butttons_text}> Stop Taking Orders </Text>
+      {takingorders ? (
+                    <Text style={styles.payment_options_butttons_text}> Stop Taking Orders </Text>
+                  ) : (
+                    <Text style={styles.text}>Start Taking Orders</Text>
+      )}
+                
       </TouchableOpacity>
     </View>
   );
