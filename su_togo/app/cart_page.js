@@ -9,7 +9,7 @@ import { ShopContext } from './shop_context';
 export default function Page() {
     const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
     //JSON.parse(counters)
-    console.log(counters)
+    //console.log(counters)
   return (
     <>
         <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>

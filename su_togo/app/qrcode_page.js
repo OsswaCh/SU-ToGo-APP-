@@ -3,10 +3,27 @@ import { View, StyleSheet, SafeAreaView, Text, TextInput, ScrollView, Button, Im
 import { Link } from 'expo-router';
 import QRCode from 'react-native-qrcode-svg';
 import { ShopContext } from './shop_context';
-import { useContext } from 'react';
-
+import { useContext, useState } from 'react';
+import { catalogItems } from '../data/Catalog_items';
 export default function Page() {
     const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+    // const matchedItems = [];
+    // const endorder =()=> 
+    //     {
+    //         counters.forEach(counter => {
+    //             const matchedItem = catalogItems.find(item => item.id === Object.keys(counter));
+    //             const StEntryName = Object.keys(counter);
+    //             console.log('t entry name:', StEntryName);
+    //             if (matchedItem) {
+    //               matchedItems.push({ ...counter, ...matchedItem });
+    //             }
+    //           });
+            
+    //     };
+    //     const firstEntryName = Object.keys(counters);
+    //     console.log('First entry name:', firstEntryName);
+    //     console.log(counters);
+    //     console.log(matchedItems);
     //We can have the qr codes hold the order values maybe?
   return (
     <>
