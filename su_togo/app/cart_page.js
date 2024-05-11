@@ -5,6 +5,7 @@ import { catalogItems } from '../data/Catalog_items';
 import { ShopContext } from './shop_context';
 
 export default function Page() {
+
     const { counters } = useContext(ShopContext);
     const getImageForItem = (itemId) => {
       // Logic to retrieve image for item based on its ID

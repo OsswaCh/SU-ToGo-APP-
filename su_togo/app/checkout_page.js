@@ -1,9 +1,53 @@
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity  } from 'react-native';
 import { ShopContext } from './shop_context';
 import { useContext } from 'react';
-import { Link  } from 'expo-router';
+import { Link , useNavigation} from 'expo-router';
+import { catalogItems } from '../data/Catalog_items';
 export default function Page() {
   const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+  const navigation = useNavigation ();
+  const matchedItems = [];
+    const endorder =()=> 
+        {
+          const items=[]
+          let totalPrice = 0;
+          const randomNumber = Math.floor(Math.random() * 1000);
+          Object.keys(counters).forEach(key => {
+            const firstKey = key; // Get the first key of the counter object
+            const matchedItem = catalogItems.find(item => item.id === parseInt(firstKey)); // Parse the key to integer before comparison
+            console.log('First entry name:', firstKey);
+            if (matchedItem) {
+              matchedItems.push({ ...counters[key], ...matchedItem });
+              console.log(matchedItem);
+              if (matchedItem.price) {
+                totalPrice += matchedItem.price;
+              }
+              if(matchedItem.name)
+              {
+                items.push(matchedItem.name);
+              }
+            }
+            console.log(matchedItems);
+            if (matchedItems)
+            {
+              console.log(randomNumber);
+              console.log(totalPrice);
+              console.log(items);
+              const obj ={ id: randomNumber, customer: 'Test User', items: items, total: totalPrice };
+              console.log(obj);
+              setOrders([...orders,obj]);
+            }
+            else
+            {
+              return false;
+            }
+          });
+          
+              //navigation.push('/qrcode_page');
+        };
+        //const firstEntryName = Object.keys(counters);
+        //console.log('First entry name:', firstEntryName);
+        //console.log(counters);
   //There should be 2 extra objects here ^ (Will need to updated across the entire app)
   return (
     <>
@@ -60,9 +104,13 @@ export default function Page() {
             </View>
           </View>
           <View style={styles.pay_button_view}>
-            <TouchableOpacity style={styles.pay_button_button} /*onPress={onPress}*/>
-              <Link href="/qrcode_page" style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200, fontFamily: "Inter"}}> 
-                Pay 
+            <TouchableOpacity style={styles.pay_button_button}onPress={endorder} >
+            {/* href="/qrcode_page" */}
+              <Link  href="/qrcode_page" onPress={endorder} style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200, fontFamily: "Inter"}}> 
+                
+                {/* <Text style={{height:"100%", width:"100%", alignContent: "center", textAlign: "center", color:"white", backgroundColor: '#000000', borderRadius: 30, fontWeight: 200, fontFamily: "Inter"}}> */}
+                  Pay
+                  {/* </Text> */}
               </Link>
             </TouchableOpacity>
           </View>
