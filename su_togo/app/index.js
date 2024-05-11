@@ -6,7 +6,7 @@ export default function Page() {
   //const [password, setPassword] = useState('123');
   //const [enteredPassword, setEnteredPassword] = useState('');
   const navigation = useNavigation();
-  const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+  const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters,takingorders,settakingorders} = useContext(ShopContext);
   const handleLogin = () => {
     if (enteredPassword === password) {
       // Navigate to admin page
@@ -16,7 +16,6 @@ export default function Page() {
       Alert.alert('Invalid Password', 'Please enter the correct password.');
     }
   };
-  
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
@@ -33,9 +32,16 @@ export default function Page() {
             </View> 
             <View style={styles.box}>
               <TouchableOpacity style={styles.link}>
-                <Link href="/store_page" style={styles.linkText}>
+                {/* <Link href="/store_page" style={styles.linkText} onPress={handleNotAllowedtoShop}>
                   Start Shopping
-                </Link>
+                </Link> */}
+                {takingorders ? (
+                    <Link href="/store_page" style={styles.linkText}>
+                      Start Shopping
+                    </Link>
+                  ) : (
+                    <Text style={styles.text}>Shopping is currently not available</Text>
+                  )}
               </TouchableOpacity>
             </View>
             {/* <View style={styles.box}>
