@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useContext } from 'react';
 import { Link } from 'expo-router';
-import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView,TouchableOpacity, Button, Image, Alert } from 'react-native';
 import { catalogItems } from '../data/Catalog_items';
 import Catalog from '../components/Catalog'; 
 import { ShopContext } from './shop_context';
@@ -127,11 +127,16 @@ export default function App() {
             <Catalog items={catalogItems} counters={counters} setCounters={setCounters} />
           </ScrollView>
         </View>
-            <View style={styles.container}>
-            <View style={styles.blueBox}>
-            <Link href="/cart_page" style={styles.checkoutLink}>Check out Page</Link>
+
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.checkout_button_button}>
+                
+                <Link href="/cart_page" style={styles.checkout_text}>Check Out Page</Link>
+                      
+          </TouchableOpacity>
         </View>
-        </View>
+
+        
         
         </SafeAreaView>
 
@@ -150,6 +155,30 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+
+  checkout_text:
+  {
+    height: 60, 
+    width: 200, 
+    alignContent: "center", 
+    textAlign: "center",
+    color:"white",
+    backgroundColor: '#000000',
+    borderRadius: 30,
+    fontWeight: 200, fontFamily: "Inter",
+  },
+
+  checkout_button_view: 
+  {
+    //backgroundColor: 'pink',
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    maxHeight: 200,
+    justifyContent: "center",
+    minHeight: 70,
+
+  },
 
   
   headerContainer: {
