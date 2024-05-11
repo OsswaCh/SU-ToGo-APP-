@@ -7,9 +7,9 @@ const [password, setPassword] = useState('123');
 const [enteredPassword, setEnteredPassword] = useState('');
 const [orders, setOrders] = useState(initialOrders);
 const [counters, setCounters] = useState({});
-
+const [takingorders, settakingorders] = useState(true);
   return (
-    <ShopContext.Provider value={{password,setPassword,enteredPassword,setEnteredPassword, orders,setOrders, counters,setCounters  }}>
+    <ShopContext.Provider value={{password,setPassword,enteredPassword,setEnteredPassword, orders,setOrders, counters,setCounters,takingorders,settakingorders  }}>
         <Stack   screenOptions={{
             headerStyle: {
             backgroundColor: '#f4511e',
