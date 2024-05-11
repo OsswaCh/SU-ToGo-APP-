@@ -6,7 +6,7 @@ import { catalogItems } from '../data/Catalog_items';
 export default function Page() {
   const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
   const navigation = useNavigation ();
-  
+
     const endorder =()=> 
         {
           const matchedItems = [];
@@ -37,6 +37,7 @@ export default function Page() {
               const obj ={ id: randomNumber, customer: 'Test User', items: items, total: totalPrice };
               console.log(obj);
               setOrders([...orders,obj]);
+              //handleEmail();
             }
             else
             {

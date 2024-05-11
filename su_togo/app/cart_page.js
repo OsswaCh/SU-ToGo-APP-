@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 import { catalogItems } from '../data/Catalog_items';
 import { ShopContext } from './shop_context';
 
 export default function Page() {
-
+    const [name, setName] =useState([]);
     const { counters } = useContext(ShopContext);
+
     const getImageForItem = (itemId) => {
       // Logic to retrieve image for item based on its ID
       switch (itemId) {
@@ -24,13 +25,32 @@ export default function Page() {
       }
   };
   
-  const getItemName = (itemId) => {
+  const getItemName = () => {
     console.log('Catalog Items:', catalogItems);
-    const item = catalogItems.find((item) => item.id === itemId);
-    console.log('Item:', item);
-    return item ? item.name : 'Item';
+    Object.keys(counters).forEach(key => {
+        const firstKey = key; // Get the first key of the counter object
+        const matchedItem = catalogItems.find(item => item.id === parseInt(firstKey)); // Parse the key to integer before comparison
+        console.log('First entry name:', firstKey);
+        if (matchedItem) {
+          console.log(matchedItem);
+          if(matchedItem.name)
+          {
+            console.log(matchedItem.name)
+            console.log(name);
+            setName((prev) => [...prev, matchedItem.name]);
+            //setName([...name,matchedItem.name]);
+            console.log(name);
+          }
+        }
+    });
 };
-  
+useEffect(() => {
+    // Function to run on component mount (page load)
+    console.log('Page loaded');
+    // Call your function here
+    getItemName();
+  },[]);
+
     return (
         <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
             <SafeAreaView style={styles.container}>
@@ -45,12 +65,13 @@ export default function Page() {
                 {/* Display counters */}
                 <View style={styles.countersContainer}>
                   <Text style={styles.countersTitle}>Items in Cart:</Text>
-                    {counters && Object.keys(counters).map((itemId) => (
+                    {counters && Object.keys(counters).map((itemId, iterator) => (
                       
                       <View key={itemId} style={styles.counterItem}>
                       <Image source={getImageForItem(itemId)} style={styles.itemImage} />
                       <View style={styles.itemDetails}>
-                          <Text style={styles.itemName}>{`Item ID: ${itemId}`}</Text>
+                          <Text style={styles.itemName}>{`Name: ${name[iterator]}`}</Text>
+
                           <Text style={styles.itemQuantity}>{`Quantity: ${counters[itemId]}`}</Text>
                       </View>
                   </View>
