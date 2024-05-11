@@ -21,6 +21,8 @@ const CatalogItem = ({ item, onPressAdd, counter }) => {
 };
 
 const Catalog = ({ items, counters, setCounters }) => {
+  //const [counters, setCounters] = useState({});
+
   const handlePressAdd = (item, increment) => {
     const newCounters = { ...counters };
     const updatedCounter = (newCounters[item.id] || 0) + increment;
@@ -29,7 +31,6 @@ const Catalog = ({ items, counters, setCounters }) => {
       newCounters[item.id] = updatedCounter;
       setCounters(newCounters);
     }
-    //console.log(counters);
   };
 
   return (

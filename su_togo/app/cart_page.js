@@ -1,12 +1,14 @@
 import React from 'react';
+import { useState, useContext } from 'react';
 import { View, StyleSheet, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity } from 'react-native';
-import { Link, useLocalSearchParams } from 'expo-router';
+import { Link } from 'expo-router';
 import { catalogItems } from '../data/Catalog_items';
+import { ShopContext } from './shop_context';
 
 
 export default function Page() {
-    const {counters } = useLocalSearchParams();
-    JSON.parse(counters)
+    const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+    //JSON.parse(counters)
     console.log(counters)
   return (
     <>
@@ -19,7 +21,9 @@ export default function Page() {
                     </Link>
                 </View>
                 <View>
-                    
+                    <Link href="/checkout_page">
+                        Check Out Page
+                    </Link>
                 </View>
             </SafeAreaView>
         </ScrollView>

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Button, Alert, Text } from 'react-native';
 import { Link,useNavigation } from 'expo-router';
-
+import { ShopContext } from './shop_context';
 export default function Page() {
-  const [password, setPassword] = useState('123');
-  const [enteredPassword, setEnteredPassword] = useState('');
+  //const [password, setPassword] = useState('123');
+  //const [enteredPassword, setEnteredPassword] = useState('');
   const navigation = useNavigation();
-
+  const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
   const handleLogin = () => {
     if (enteredPassword === password) {
       // Navigate to admin page

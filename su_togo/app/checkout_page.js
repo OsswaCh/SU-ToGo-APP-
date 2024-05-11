@@ -1,33 +1,10 @@
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity  } from 'react-native';
+import { ShopContext } from './shop_context';
+import { useContext } from 'react';
 import { Link  } from 'expo-router';
 export default function Page() {
-
-  
- 
-  // console.log(items[0]);
-  // console.log(items[1]);
-  // console.log(items[2]);
-  // console.log(items[3]);
-  // console.log(items[4]);
-  // console.log(items[5]);
-  // console.log(items[6]);
-  // console.log(items[7]);
-  //JSON.parse(items)
-
-  
-  // items.forEach(item => {
-  //   console.log("ID:", item.id);
-  //   console.log("Name:", item.name);
-  //   console.log("Price:", item.price);
-  //   console.log("Image:", item.image); // Assuming image is a string or URL
-  // });
-  //console.log( items)
-  //const {id} = items;
-  //console.log(id);
-  //console.log(JSON.stringify(counters));
-  // Object.keys(counters).forEach(key => {
-  //   console.log(key + ": " + counters[key]);
-  // });
+  const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+  //There should be 2 extra objects here ^ (Will need to updated across the entire app)
   return (
     <>
       <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>
@@ -47,6 +24,7 @@ export default function Page() {
                 Payment Options:
               </Text>
             </View>
+            {/*state one should come from here */}
             <View style={styles.payment_options_view}>
               <TouchableOpacity style={styles.payment_options_buttons} /*onPress={onPress}*/>
                 <Text style={styles.payment_options_butttons_text}> Cash </Text>
@@ -68,6 +46,7 @@ export default function Page() {
                 Pickup Options:
               </Text>
             </View>
+            {/*state two should come from here */}
             <View style={styles.pickup_options_view}>
             <TouchableOpacity style={styles.pickup_options_buttons} /*onPress={onPress}*/>
                 <Text style={styles.payment_options_butttons_text}> As Soon As Possible </Text>
