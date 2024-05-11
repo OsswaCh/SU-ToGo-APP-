@@ -2,8 +2,12 @@ import React from 'react';
 import { View, StyleSheet, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert, Pressable, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 import QRCode from 'react-native-qrcode-svg';
+import { ShopContext } from './shop_context';
+import { useContext } from 'react';
 
 export default function Page() {
+    const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
+    //We can have the qr codes hold the order values maybe?
   return (
     <>
         <ScrollView style={styles.scrollViewMain} contentContainerStyle={styles.scrollView_Contstyl}>

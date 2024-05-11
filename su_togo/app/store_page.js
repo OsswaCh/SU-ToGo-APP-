@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'expo-router';
 import { StyleSheet, View, SafeAreaView, Text, TextInput, ScrollView, Button, Image, Alert } from 'react-native';
 import { catalogItems } from '../data/Catalog_items';
 import Catalog from '../components/Catalog'; 
-
+import { ShopContext } from './shop_context';
 
   //COUNTERS + ITEMS to CART
 // Sample catalog data
@@ -20,7 +20,8 @@ import Catalog from '../components/Catalog';
 // //[]
 export default function App() {
   const [text, onChangeText] = useState('What are you craving today?');
-  const [counters, setCounters] = useState({});
+  //const [counters, setCounters] = useState({});
+  const {password, setPassword, enteredPassword, setEnteredPassword, orders, setOrders,  counters,setCounters} = useContext(ShopContext);
   return (
     <>
       <ScrollView contentContainerStyle={styles.scrollViewMain}>
@@ -128,7 +129,7 @@ export default function App() {
         </View>
             <View style={styles.container}>
             <View style={styles.blueBox}>
-            <Link href={{pathname:"/cart_page", params:{counters: JSON.stringify(counters)}}} style={styles.checkoutLink}>Check out Page</Link>
+            <Link href="/cart_page" style={styles.checkoutLink}>Check out Page</Link>
         </View>
         </View>
         
