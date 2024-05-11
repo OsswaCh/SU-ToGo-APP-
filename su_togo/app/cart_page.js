@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, StyleSheet, SafeAreaView, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, SafeAreaView, Text, ScrollView, Image, TouchableOpacity ,TextInput} from 'react-native';
 import { Link } from 'expo-router';
 import { catalogItems } from '../data/Catalog_items';
 import { ShopContext } from './shop_context';
@@ -7,6 +7,7 @@ import { ShopContext } from './shop_context';
 export default function Page() {
     const [name, setName] =useState([]);
     const { counters } = useContext(ShopContext);
+    const [text, onChangeText] = useState('Any Comments?');
 
     const getImageForItem = (itemId) => {
       // Logic to retrieve image for item based on its ID
@@ -77,7 +78,11 @@ useEffect(() => {
                   </View>
                     ))}
                 </View>
-                
+                <TextInput
+              style={styles.input}
+              onChangeText={onChangeText}
+              value={text}
+            />
                 <TouchableOpacity style={styles.checkout_button_button}>
                 
                     <Link href="/checkout_page" style={styles.checkout_text}>Check Out Page</Link>
@@ -103,7 +108,14 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     fontWeight: 200, fontFamily: "Inter",
   },
-
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    width: "90%",
+    backgroundColor: "#d5d5d54a"
+  },
   checkout_button_view: 
   {
     //backgroundColor: 'pink',
